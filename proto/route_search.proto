@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+service RouteSearchService {
+    rpc FindCheapestPath (PathRequest) returns (PathResponse);
+}
+
+message PathRequest {
+    string source_id = 1;
+    string destination_id = 2;
+}
+
+message PathResponse {
+    int32 total_price = 1;
+    repeated string path_stations_ids = 2;
+}
