@@ -17,7 +17,6 @@ TEST(GraphTest, CanAddAndRetrieveEdges) {
     auto neighbors = g.getNeighbors("London");
     
     // We expect London tfile:///home/tarek/C++_prepare_for_test
-    o have exactly 1 neighbor
     EXPECT_EQ(neighbors.size(), 2);
     
     // We expect that neighbor's destination to be "Paris"
