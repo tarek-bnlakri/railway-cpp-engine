@@ -1,1 +1,17 @@
+# CMake & Build Artifacts
 build/
+bin/
+lib/
+CMakeCache.txt
+CMakeFiles/
+Makefile
+*.cmake
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# IDEs
+.vscode/
+.idea/
+*.swp
