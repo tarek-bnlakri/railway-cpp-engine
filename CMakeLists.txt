@@ -27,6 +27,7 @@ add_custom_command(
 
 add_library(route_search_proto ${PROTO_SRC} ${PROTO_HDR} ${GRPC_SRC} ${GRPC_HDR})
 target_link_libraries(route_search_proto PUBLIC protobuf::libprotobuf -lgrpc++)
+target_include_directories(route_search_proto PUBLIC "${CMAKE_CURRENT_BINARY_DIR}")
 
 
 # --- PART 2: Core Graph Engine & Unit Tests ---
@@ -47,3 +48,7 @@ add_executable(run_tests tests/graph_test.cpp tests/dijkstra_test.cpp)
 
 # 4. Link our tests to our Graph code and to Google Test
 target_link_libraries(run_tests PUBLIC graph_engine gtest_main)
+
+# --- PART 3: The gRPC Server Executable ---
+add_executable(railway_server src/main.cpp src/server.cpp)
+target_link_libraries(railway_server PUBLIC graph_engine route_search_proto)
