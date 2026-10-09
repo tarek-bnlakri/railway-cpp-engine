@@ -43,7 +43,7 @@ FetchContent_Declare(
 FetchContent_MakeAvailable(googletest)
 
 # 3. Create our Testing Executable
-add_executable(run_tests tests/graph_test.cpp)
+add_executable(run_tests tests/graph_test.cpp tests/dijkstra_test.cpp)
 
 # 4. Link our tests to our Graph code and to Google Test
 target_link_libraries(run_tests PUBLIC graph_engine gtest_main)
