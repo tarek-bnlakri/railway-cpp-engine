@@ -14,28 +14,28 @@ flowchart TD
     classDef grpc fill:#f39c12,stroke:#d35400,stroke-width:2px,color:#fff;
 
     %% Nodes
-    User(("🧑‍💻 User / Postman")):::client
+    User(("🧑💻 User / Postman")):::client
     
     subgraph Windows ["🖥️ Windows (Host OS)"]
-        NodeJS["Node.js API Gateway\n(Express / TypeScript)"]:::nodejs
+        NodeJS["Node.js API Gateway<br>(Express / TypeScript)"]:::nodejs
     end
 
     subgraph Docker ["🐳 Docker Container (Linux VM)"]
         direction TB
-        gRPC["gRPC Server\n(Listening on Port 50051)"]:::grpc
-        Engine["C++ Dijkstra Engine\n(std::priority_queue)"]:::cpp
-        Graph["Memory Graph\n(std::unordered_map)"]:::cpp
+        gRPC["gRPC Server<br>(Listening on Port 50051)"]:::grpc
+        Engine["C++ Dijkstra Engine<br>(std::priority_queue)"]:::cpp
+        Graph["Memory Graph<br>(std::unordered_map)"]:::cpp
         
-        gRPC -->|Decodes Protobuf Request| Engine
-        Engine <-->|Queries Train Edges| Graph
-        Engine -->|Returns Cheapest Path| gRPC
+        gRPC -->|"Decodes Protobuf Request"| Engine
+        Engine <-->|"Queries Train Edges"| Graph
+        Engine -->|"Returns Cheapest Path"| gRPC
     end
 
     %% Network Flow
-    User -->|HTTP GET /api/search?from=London&to=Berlin| NodeJS
-    NodeJS ==>|1. Serializes to Binary\n2. Sends over TCP| gRPC
-    gRPC ==>|3. Translates C++ struct to JSON\n4. Sends over TCP| NodeJS
-    NodeJS -->|HTTP 200 OK (JSON)| User
+    User -->|"HTTP GET /api/search?from=London&to=Berlin"| NodeJS
+    NodeJS ==>|"1. Serializes to Binary<br>2. Sends over TCP"| gRPC
+    gRPC ==>|"3. Translates C++ struct to JSON<br>4. Sends over TCP"| NodeJS
+    NodeJS -->|"HTTP 200 OK (JSON)"| User
 ```
 
 - **Language:** C++17
