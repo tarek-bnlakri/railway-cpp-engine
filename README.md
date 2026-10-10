@@ -38,6 +38,8 @@ flowchart TD
     NodeJS -->|"HTTP 200 OK (JSON)"| User
 ```
 
+📖 *For a deep-dive into the C4 System Architecture (Context, Container, and Component levels), please read [C4_ARCHITECTURE.md](C4_ARCHITECTURE.md).*
+
 - **Language:** C++17
 - **Networking:** gRPC / Protocol Buffers
 - **Build System:** CMake
